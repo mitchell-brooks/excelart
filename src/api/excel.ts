@@ -1,11 +1,34 @@
 import { stripBase64Prefix } from "./met";
 
-export const setCellContents = async ({ cell, value }: { cell: string; value: string }) => {
+export const writeToRange = async ({ topLeftCell, values }: { topLeftCell: string; values: string[][] }) => {
+  const numRows = values.length;
+  const numColumns = values[0].length;
   try {
     await Excel.run(async (context) => {
       const sheet = context.workbook.worksheets.getActiveWorksheet();
-      const range = sheet.getRange(cell);
-      range.values = [[value]];
+      const range = sheet.getRange(topLeftCell).getAbsoluteResizedRange(numRows, numColumns);
+      range.values = values;
+      await context.sync();
+    });
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const clearRange = async ({
+  cell,
+  numRows = 1,
+  numColumns = 1,
+}: {
+  cell: string;
+  numRows?: number;
+  numColumns?: number;
+}) => {
+  try {
+    await Excel.run(async (context) => {
+      const sheet = context.workbook.worksheets.getActiveWorksheet();
+      const range = sheet.getRange(cell).getAbsoluteResizedRange(numRows, numColumns);
+      range.clear();
       await context.sync();
     });
   } catch (e) {
