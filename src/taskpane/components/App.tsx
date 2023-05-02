@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 import { useQuery, useQueryClient, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { MetObject, MetSearchResponse } from "../../types";
-import { getObjectDetailsById, getObjectIdsBySearchTerm } from "../../api/met";
-import { setCellContents } from "../../api/excel";
+import { convertImageToBase64, getImageFromURL, getObjectDetailsById, getObjectIdsBySearchTerm } from "../../api/met";
+import { addImageToShapes, setCellContents } from "../../api/excel";
 
 /* global console, Excel, require  */
 
@@ -30,21 +30,25 @@ export const App: React.FC<AppProps> = ({ isOfficeInitialized }) => {
 
   const [artist, setArtist] = useState<string | null>(null);
   const [title, setTitle] = useState<string | null>(null);
-  const [imageURL, setImageURL] = useState<string | null>(null);
+  const [base64Image, setBase64Image] = useState<string | null>(null);
   const onSearch = async (searchTerm) => {
     const objectIDs = await getObjectIdsBySearchTerm({ searchTerm });
     const { artistDisplayName, title, primaryImageSmall } = await getObjectDetailsById({ objectId: objectIDs?.[0] });
+    const imageBlob = await getImageFromURL(primaryImageSmall);
+    const convertedImage = await convertImageToBase64(imageBlob);
+    console.log({ imageBlob, convertedImage });
     setArtist(artistDisplayName);
     setTitle(title);
-    setImageURL(primaryImageSmall);
+    setBase64Image(convertedImage);
   };
 
   useEffect(() => {
-    if (artist && title && imageURL) {
+    if (artist && title && base64Image) {
       setCellContents({ cell: "A1", value: artist });
       setCellContents({ cell: "A2", value: title });
+      addImageToShapes(base64Image);
     }
-  }, [artist, title, imageURL]);
+  }, [artist, title, base64Image]);
 
   if (!isOfficeInitialized) {
     return (
