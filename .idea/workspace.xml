@@ -31,14 +31,17 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/mlb/code/spreadshart/node_modules/@fluentui/react",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/mlb/Library/Application Support/fnm/node-versions/v18.12.1/installation/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/Users/mlb/code/spreadshart/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -59,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682973093584</updated>
       <workItem from="1682973094795" duration="9893000" />
-      <workItem from="1683040655975" duration="21194000" />
+      <workItem from="1683040655975" duration="32774000" />
     </task>
     <servers />
   </component>

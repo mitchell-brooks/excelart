@@ -2,7 +2,7 @@ import { MetObject, MetSearchResponse } from "../types";
 
 export const getObjectIdsBySearchTerm = async ({
   searchTerm,
-  highlightsOnly = true,
+  highlightsOnly = false,
 }: {
   searchTerm: string;
   highlightsOnly?: boolean;

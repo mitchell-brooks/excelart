@@ -1,18 +1,32 @@
 import { stripBase64Prefix } from "./met";
 
-export const writeToRange = async ({ topLeftCell, values }: { topLeftCell: string; values: string[][] }) => {
+export const writeToRange = async ({
+  topLeftCell,
+  values,
+  bold = false,
+  italic = false,
+}: {
+  topLeftCell: string;
+  values: string[][];
+  bold?: boolean;
+  italic?: boolean;
+}) => {
   const numRows = values.length;
   const numColumns = values[0].length;
+  let range;
   try {
     await Excel.run(async (context) => {
       const sheet = context.workbook.worksheets.getActiveWorksheet();
-      const range = sheet.getRange(topLeftCell).getAbsoluteResizedRange(numRows, numColumns);
+      range = sheet.getRange(topLeftCell).getAbsoluteResizedRange(numRows, numColumns);
       range.values = values;
+      range.format.font.bold = bold;
+      range.format.font.italic = italic;
       await context.sync();
     });
   } catch (e) {
     throw e;
   }
+  return range;
 };
 
 export const clearRange = async ({
@@ -54,13 +68,3 @@ export const addImageToShapes = async (base64Image: string) => {
 };
 
 // reference https://learn.microsoft.com/en-us/javascript/api/excel/excel.shapecollection?view=excel-js-preview#excel-excel-shapecollection-addimage-member(1)
-
-// const getActiveWorksheet = async () => {
-//   await Excel.run(async (context) => {
-// const sheet = context.workbook.worksheets.getActiveWorksheet();
-//     sheet.load("name");
-//     await context.sync();
-//     console.log(sheet.name);
-//     return sheet.name;
-//   }
-// }

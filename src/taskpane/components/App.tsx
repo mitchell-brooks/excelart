@@ -1,15 +1,5 @@
 import * as React from "react";
-import { DefaultButton } from "@fluentui/react";
-import Header from "./Header";
-import HeroList, { HeroListItem } from "./HeroList";
 import Progress from "./Progress";
-import { SearchBox } from "@fluentui/react";
-import { useEffect, useState } from "react";
-import { useQuery, useQueryClient, QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { MetObject, MetSearchResponse } from "../../types";
-import { convertImageToBase64, getImageFromURL, getObjectDetailsById, getObjectIdsBySearchTerm } from "../../api/met";
-import { addImageToShapes, writeToRange } from "../../api/excel";
 import { ArtSearch } from "./art-search";
 
 /* global console, Excel, require  */
@@ -18,11 +8,7 @@ export interface AppProps {
   isOfficeInitialized: boolean;
 }
 
-const queryClient = new QueryClient();
-
 export const App: React.FC<AppProps> = ({ isOfficeInitialized }) => {
-  console.log("App rendering");
-
   if (!isOfficeInitialized) {
     return (
       <Progress
@@ -34,9 +20,9 @@ export const App: React.FC<AppProps> = ({ isOfficeInitialized }) => {
   }
 
   return (
-    <div className="ms-welcome">
-      <Header logo={require("./../../../assets/logo-filled.png")} title={"SpreadshArt"} message="Welcome" />
-
+    <div style={{ padding: "0.25rem 1rem", height: "100%", backgroundColor: "white" }}>
+      <h1>SpreadshArt</h1>
+      <p>Bringing the Metropolitan Museum of Art to your Excel Workbook</p>
       <ArtSearch />
     </div>
   );
