@@ -1,8 +1,8 @@
-# SpreadshArt
+# ExcelArt
 
 _An Excel Add-In demo to list entries from the Metropolitan Museum of Art's open API into an Excel workbook._
 
-![img.png](assets/screenshot.png)
+![screenshot](assets/screenshot.png)
 
 ## Installation
 
@@ -26,7 +26,7 @@ On Mac the process is slightly more complicated but still straightforward. Add t
 
 ### Windows
 
-The process is the most cumbersome on Windows. Follow the instructions below:
+On Windows the process is a little more complicated. Follow the instructions below:
 
 [Sideload Office Add-ins for testing from a network share](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins)
 

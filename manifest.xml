@@ -4,7 +4,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Mitchell Brooks</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="SpreadshArt"/>
+  <DisplayName DefaultValue="ExcelArt"/>
   <Description DefaultValue="A picture is worth 1000 cells"/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
@@ -77,10 +77,10 @@
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Made with love for your Workbook"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="SpreadshArt"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="ExcelArt"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your add-in loaded succesfully. Go to the HOME tab and click the 'SpreadshArt' button to get started."/>
+        <bt:String id="GetStarted.Description" DefaultValue="Your add-in loaded succesfully. Go to the HOME tab and click the 'ExcelArt' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Search The Metropolitan Museum of Art's Collection"/>
       </bt:LongStrings>
     </Resources>
