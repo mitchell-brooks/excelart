@@ -13,7 +13,7 @@ The instructions below could be repeated to sideload the application onto any ar
 
 ### Web
 
-For Excel online and Office 365, sideloading an Add-In is quite simple. Just follow the instructions below to add upload the manifest file.
+For Excel online and Office 365, sideloading an Add-In is quite simple. Just follow the instructions below to upload the manifest and enable the Add-In.
 
 [Manually sideload an add-in to Office on the web](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing#manually-sideload-an-add-in-to-office-on-the-web)
 
@@ -35,7 +35,7 @@ You'll have to
 2. Create a registry script to add the network share to the trusted catalog
 3. Run the registry script on the user's machine
 4. Add the manifest file to the network share
-5. Add the add-in from the network share within Excel's My Add-Ins section of the Insert ribbon.
+5. Add the Add-In from the network share within Excel's My Add-Ins section of the Insert ribbon.
 
 The registry script will look like this and there's a template in the `./windows` directory.
 
@@ -65,7 +65,8 @@ You can also run `npm run build` to create the `./dist` folder with the output o
 
 You can confirm the add-in has been successfully installed by the appearance of a picture frame icon in the Home ribbon.
 
-Once the add-in is installed you can use it by clicking the picture frame icon in the Home ribbon. This will open a task pane on the right side of the screen. You can use the search bar to search for items in the Met's collection. The search will return a list of items that match your query. You can add more details to your search results by clicking the checkboxes and adjust the slider to change the number of results returned. You can also click the "Clear" button to clear the search results, although they're automatically cleared when you start a new search.
+Once the add-in is installed you can use it by clicking the icon. This will open a task pane on the right side of the screen. You can use the search bar to search items in the Met's collection. You can search for individual artists or themes--any words that appear in the metadata will constitute a match.
+The search will return a list of items that match your query. You can add more details to your search results by clicking the checkboxes and adjust the slider to change the number of results returned. You can click "More" to receive another batch of results below your current results. You can also click the "Clear" button to clear the search results, although they're automatically cleared when you start a new search.
 
 ## Details
 
@@ -86,8 +87,10 @@ This is very much a toy project constrained by time and the inherent limitations
 As well as some features I considered adding but cut for time:
 
 - Displaying the artwork within the workbook itself.
-  - This functionality is actually built, but I couldn't find a graceful way to integrate it into the UI. There are functions to, given an artwork, get its image representation, convert it to a Shape object and add it to the workbook.
+  - This functionality is actually built, but I couldn't find a graceful way to integrate it into the UI quickly. There are functions to, given an artwork, get its image representation, convert it to a Shape object and add it to the workbook.
 - Caching responses
-  - The Met doesn't provide full results within search, so each cell represents a separate fetch call. This data is quite stable, so caching the results is a no-brainer to improve performance and reduce the number of network calls.
+  - The Met doesn't provide full results within the initial search, only IDs for subsequent searching, so each cell represents a separate network call. This data is quite stable, so caching the results is a no-brainer to improve performance and reduce the number of network calls.
 - Hyperlinking cells
   - This is straightforward, just tedious. The search results include links to the images themselves, as well as biographical data--I'd like to add hyperlinks to relevant cells where applicable.
+
+Let me know if you have any questions or feedback!
