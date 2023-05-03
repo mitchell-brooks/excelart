@@ -7,7 +7,8 @@ _An Excel Add-In demo to list entries from the Metropolitan Museum of Art's open
 ## Installation
 
 If you received a `manifest.xml` from me, that's all you need to run the application, but you'll need to follow the instructions below to sideload the add-in into Excel, depending on your platform. The manifest points to the production server hosted on `surge.sh`
-you can sideload the app into Excel in any of the following ways, depending upon your chosen platform.
+
+You can sideload the app into Excel in any of the following ways, depending upon your chosen platform.
 
 The instructions below could be repeated to sideload the application onto any arbitrary number of users' machines, but the easiest way to deploy organization-wide would be to use the [Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins?view=o365-worldwide)
 
@@ -48,6 +49,8 @@ Windows Registry Editor Version 5.00
 "Flags"=dword:00000001
 ```
 
+**NB: Make sure to double any `\` characters in the local URL.**
+
 ## Development
 
 If you did not receive a manifest file, you can still run the application locally. You'll need to clone the repository and run the following commands:
@@ -57,7 +60,9 @@ npm install
 npm run start
 ```
 
-This should launch a local server and open Excel with the application running. Because of some longstanding issues with Microsoft's `npm` packages, after running `npm install` you may need to rename `./node_modules/@fluentui/react/lib-common-js` to `./node_modules/@fluentui/react/lib`
+This should launch a local server and open Excel with the application running.
+
+If you run into issues after `npm install` you may need to rename (or clone) `./node_modules/@fluentui/react/lib-common-js` to `./node_modules/@fluentui/react/lib` because of some longstanding issues with Microsoft's Fluent / Fabric UI versioning for Office Add-Ins.
 
 You can also run `npm run build` to create the `./dist` folder with the output of the static app and the production manifest file for sideloading.
 
