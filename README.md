@@ -94,7 +94,7 @@ As well as some features I considered adding but cut for time:
 - Displaying the artwork within the workbook itself.
   - This functionality is actually built, but I couldn't find a graceful way to integrate it into the UI quickly. There are functions to, given an artwork, get its image representation, convert it to a Shape object and add it to the workbook.
 - Caching responses
-  - The Met doesn't provide full results within the initial search, only IDs for subsequent searching, so each cell represents a separate network call. This data is quite stable, so caching the results is a no-brainer to improve performance and reduce the number of network calls.
+  - The Met doesn't provide full results within the initial search, only IDs for subsequent searching, so each row represents a separate network call. This data is quite stable, so caching the results is a no-brainer to improve performance and reduce the number of network calls.
 - Hyperlinking cells
   - This is straightforward, just tedious. The search results include links to the images themselves, as well as biographical data--I'd like to add hyperlinks to relevant cells where applicable.
 
