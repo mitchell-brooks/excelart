@@ -2,6 +2,8 @@
 
 _An Excel Add-In demo to list entries from the Metropolitan Museum of Art's open API into an Excel workbook._
 
+![img.png](assets/screenshot.png)
+
 ## Installation
 
 If you received a `manifest.xml` from me, that's all you need to run the application, but you'll need to follow the instructions below to sideload the add-in into Excel, depending on your platform. The manifest points to the production server hosted on `surge.sh`
