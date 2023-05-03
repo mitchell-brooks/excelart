@@ -8,9 +8,8 @@
   "license": "MIT",
   "config": {
     "app_to_debug": "excel",
-    "app_type_to_debug": "web",
-    "dev_server_port": 3000,
-    "document": "https://lydamedia-my.sharepoint.com/:x:/g/personal/mitchell_lydamedia_onmicrosoft_com/EfTDyUwZg2ZJlhuygHfkUHcBOJ5wSwvV36VhyMVaPOSnlA?e=CytLHb"
+    "app_type_to_debug": "desktop",
+    "dev_server_port": 3000
   },
   "scripts": {
     "build": "webpack --mode production",

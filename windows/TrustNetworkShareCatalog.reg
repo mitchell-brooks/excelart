@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\WEF\TrustedCatalogs\{-random-GUID-here-}]
+"Id"="{-random-GUID-here-}"
+"Url"="\\\\-share-\\-folder-"
+"Flags"=dword:00000001

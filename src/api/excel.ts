@@ -1,4 +1,4 @@
-import { stripBase64Prefix } from "./met";
+/* global Excel */
 
 export const writeToRange = async ({
   topLeftCell,
@@ -50,12 +50,14 @@ export const clearRange = async ({
   }
 };
 
+// implemented the ability to download image and display it as a shape in the workbook, but ultimately decided
+// against including the feature
 export const addImageToShapes = async (base64Image: string) => {
   try {
     await Excel.run(async (context) => {
       const sheet = context.workbook.worksheets.getActiveWorksheet();
       const image = sheet.shapes.addImage(stripBase64Prefix(base64Image));
-      image.name = "Image";
+      image.name = "MetImage";
       image.left = 0;
       image.top = 0;
       image.height = 100;
@@ -65,6 +67,28 @@ export const addImageToShapes = async (base64Image: string) => {
   } catch (e) {
     throw e;
   }
+};
+
+export const convertImageToBase64 = async (image: Blob) => {
+  let base64;
+  try {
+    base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  } catch (e) {
+    throw e;
+  }
+  // TODO fix typecast with type guard
+  return base64 as string;
+};
+
+export const stripBase64Prefix = (base64: string) => {
+  const startIndex = base64.indexOf("base64,");
+  const myBase64 = base64.substr(startIndex + 7);
+  return myBase64;
 };
 
 // reference https://learn.microsoft.com/en-us/javascript/api/excel/excel.shapecollection?view=excel-js-preview#excel-excel-shapecollection-addimage-member(1)

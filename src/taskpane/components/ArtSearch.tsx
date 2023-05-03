@@ -51,7 +51,7 @@ const fetchItems = async (
   return objects;
 };
 
-const createRangeDataFromResults = async (
+const createAndWriteRangeDataFromResults = async (
   results: MetObject[],
   totalFetchedItems,
   allDisplayProperties: AllProperties[]
@@ -77,7 +77,7 @@ export const ArtSearch = () => {
   const [numberOfItemsToFetch, setNumberOfItemsToFetch] = useState<number>(10);
   const [totalFetchedItems, setTotalFetchedItems] = useState<number>(0);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [highlightsOnly, setHighlightsOnly] = useState<boolean>(false);
+  const [highlightsOnly, setHighlightsOnly] = useState<boolean>(true);
   const [additionalProperties, setAdditionalProperties] = useState<Record<AdditionalProperties, boolean>>(() =>
     // create an object with all additional properties to track checkboxes
     Object.assign({}, ...ADDITIONAL_PROPERTIES.map((k) => ({ [k]: false })))
@@ -112,7 +112,7 @@ export const ArtSearch = () => {
       await onClear();
       await formatAndDisplayHeaders(allDisplayProperties);
       const items = await fetchItems(searchTerm, numberOfItemsToFetch, 0, highlightsOnly);
-      const rangeData = await createRangeDataFromResults(items, 0, allDisplayProperties);
+      const rangeData = await createAndWriteRangeDataFromResults(items, 0, allDisplayProperties);
       setTotalFetchedItems(rangeData.length);
     },
     [highlightsOnly, numberOfItemsToFetch, onClear]
@@ -121,7 +121,7 @@ export const ArtSearch = () => {
   const onMore = useCallback(
     async (searchTerm, allDisplayProperties) => {
       const items = await fetchItems(searchTerm, numberOfItemsToFetch, totalFetchedItems, highlightsOnly);
-      const rangeData = await createRangeDataFromResults(items, totalFetchedItems, allDisplayProperties);
+      const rangeData = await createAndWriteRangeDataFromResults(items, totalFetchedItems, allDisplayProperties);
       setTotalFetchedItems((s) => s + rangeData.length);
     },
     [highlightsOnly, numberOfItemsToFetch, totalFetchedItems]

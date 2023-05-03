@@ -15,11 +15,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2PCts19YzX5rhI2HBlCiDU9Zaqn" />
   <component name="ProjectViewState">
@@ -31,8 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/Users/mlb/code/spreadshart/node_modules/@fluentui/react",
+    "last_opened_file_path": "/Users/mlb/code/spreadshart/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -41,16 +48,20 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/mlb/Library/Application Support/fnm/node-versions/v18.12.1/installation/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "settings.editor.selected.configurable": "Errors",
     "ts.external.directory.path": "/Users/mlb/code/spreadshart/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/node_modules/@fluentui/react" />
       <recent name="$PROJECT_DIR$/node_modules/@fluentui/react" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -62,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682973093584</updated>
       <workItem from="1682973094795" duration="9893000" />
-      <workItem from="1683040655975" duration="32774000" />
+      <workItem from="1683040655975" duration="41879000" />
     </task>
     <servers />
   </component>

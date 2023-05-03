@@ -1,6 +1,6 @@
 import * as React from "react";
 import Progress from "./Progress";
-import { ArtSearch } from "./art-search";
+import { ArtSearch } from "./ArtSearch";
 
 /* global console, Excel, require  */
 
