@@ -78,6 +78,8 @@ This is very much a toy project constrained by time and the inherent limitations
 - Testing
   - I've manually tested the app in Excel Online, Excel for Mac, and Excel for Windows, but I haven't written any automated tests. This could be improved by writing unit tests for the various functions and integration tests for the app as a whole. I've broken out functions to make them easy to test but felt that time was better spent developing features.
   - Likewise, I'd like to test across more versions and platforms of Excel, which can have different JavaScript runtime environments and different performance profiles.
+- Styling
+  - Styling is pretty barebones and what little CSS is there is done inline, which incurs a performance penalty. Leveraging FluentUI gives it polish without too much effort, but I'd like to spend more time on it with proper and best-practices CSS.
 
 As well as some features I considered adding but cut for time:
 
